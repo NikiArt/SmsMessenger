@@ -2,15 +2,14 @@ package ru.test.smsmessenger
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AppCompatActivity
 import android.telephony.SmsManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     lateinit var sendButton: Button
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(applicationContext, "Введите текст сообщения!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Введите текст сообщения!!!", Toast.LENGTH_LONG).show()
         }
     }
 }
