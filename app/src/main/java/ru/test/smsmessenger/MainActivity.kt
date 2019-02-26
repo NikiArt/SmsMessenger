@@ -36,19 +36,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun sendSms() {
         if (!textSms.text.isEmpty()) {
-            /*if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.SEND_SMS)
-                != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.SEND_SMS)) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
+                    SmsManager.getDefault()
+                        .sendTextMessage(telNumber.text.toString(), null, textSms.text.toString(), null, null);
                 } else {
                     ActivityCompat.requestPermissions(this,
-                        arrayOf(Manifest.permission.SEND_SMS),
-                        MY_PERMISSIONS_REQUEST_SEND_SMS)
+                        arrayOf(Manifest.permission.SEND_SMS), 0)
                 }
-            }*/
-            SmsManager.getDefault()
-                .sendTextMessage(telNumber.text.toString(), null, textSms.text.toString(), null, null);
+            }
         } else {
             Toast.makeText(applicationContext, "Введите текст сообщения!", Toast.LENGTH_LONG).show()
         }
