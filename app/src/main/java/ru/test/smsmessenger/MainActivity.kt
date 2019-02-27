@@ -35,17 +35,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun sendSms() {
         if (!textSms.text.isEmpty()) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
-                    SmsManager.getDefault()
-                        .sendTextMessage(telNumber.text.toString(), null, textSms.text.toString(), null, null);
-                } else {
-                    ActivityCompat.requestPermissions(this,
-                        arrayOf(Manifest.permission.SEND_SMS), 0)
-                }
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.SEND_SMS
+                ) == PackageManager.PERMISSION_GRANTED
+            ) {
+                SmsManager.getDefault()
+                    .sendTextMessage(telNumber.text.toString(), null, textSms.text.toString(), null, null);
+            } else {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), 0)
             }
         } else {
-            Toast.makeText(applicationContext, "Введите текст сообщения!!!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Введите текст сообщения!", Toast.LENGTH_LONG).show()
         }
     }
 }
